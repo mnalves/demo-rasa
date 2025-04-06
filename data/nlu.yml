@@ -1,91 +1,108 @@
-version: "3.1"
-
 nlu:
-- intent: greet
-  examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+  - intent: consultar_cardapio
+    examples: |
+      - O que tem no cardápio?
+      - Me fala o cardápio
+      - Quais pizzas tem no cardápio?
+      - Mostra as opções de pizza
+      - O que vocês têm no menu?
+      - Quais sabores de pizza vocês servem?
 
-- intent: goodbye
-  examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+  - intent: consultar_pizzas_doces
+    examples: |
+      - Quais pizzas doces vocês têm?
+      - Tem pizza de chocolate?
+      - Quais pizzas doces estão no cardápio?
+      - Tem pizza doce de morango?
+      - Quais são as opções de pizza doce?
+      - Tem pizza de banana com canela?
 
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+  - intent: consultar_bebidas
+    examples: |
+      - Quais bebidas vocês têm?
+      - Me mostra as opções de bebida
+      - O que tem de bebida no cardápio?
+      - Tem refrigerante?
+      - Quais são as opções de suco?
+      - Quais bebidas vocês oferecem?
 
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+  - intent: pedir_pizza
+    examples: |
+      - Quero uma pizza de calabresa
+      - Me traz uma pizza de frango com catupiry
+      - Eu vou querer uma portuguesa
+      - Quero uma pizza de quatro queijos
+      - Pode ser uma pizza de marguerita
+      - Me faz uma pizza vegetariana
 
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+  - intent: coletar_endereco
+    examples: |
+      - Qual é o seu endereço para entrega?
+      - Onde será entregue a pizza?
+      - Me passe seu endereço, por favor
+      - Onde você está localizado?
+      - Onde posso entregar sua pizza?
+      - Onde você quer que entreguemos a pizza?
 
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+  - intent: alterar_pedido
+    examples: |
+      - Eu quero alterar o pedido
+      - Posso mudar a pizza que pedi?
+      - Quero trocar a pizza do meu pedido
+      - Como posso alterar o pedido?
+      - Quais opções de alteração de pedido vocês têm?
+      - Posso trocar o sabor da pizza que pedi?
 
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+  - intent: cancelar_pedido
+    examples: |
+      - Quero cancelar meu pedido
+      - Pode cancelar minha pizza
+      - Preciso cancelar o pedido
+      - Quero desistir do pedido
+      - Eu quero cancelar a entrega
+      - Como faço para cancelar?
+
+  - intent: confirmar_pedido
+    examples: |
+      - Confirmar pedido
+      - Está certo, pode finalizar
+      - Pode fazer o pedido
+      - Está tudo certo, pode confirmar
+      - Pode enviar a pizza
+      - Pode confirmar o pedido para mim?
+
+  - intent: consultar_horario
+    examples: |
+      - Que horas vocês abrem?
+      - Qual o horário de funcionamento da pizzaria?
+      - Quando vocês fecham?
+      - Até que horas posso pedir?
+      - Qual o horário de entrega de vocês?
+      - Vocês funcionam aos domingos?
+
+  - intent: consultar_entrega
+    examples: |
+      - Quanto tempo demora para entregar?
+      - Qual é o tempo de entrega?
+      - Qual o prazo para a entrega?
+      - Como funciona o prazo de entrega?
+      - Em quanto tempo chega a pizza?
+      - Quanto tempo leva para chegar?
+
+  - intent: consultar_pagamento
+    examples: |
+      - Quais formas de pagamento vocês aceitam?
+      - Posso pagar com cartão?
+      - Aceita pagamento em dinheiro na entrega?
+      - Como posso pagar?
+      - Vocês aceitam Pix?
+      - Quais métodos de pagamento vocês oferecem?
+
+  - intent: duvida_geral
+    examples: |
+      - Vocês entregam em toda a cidade?
+      - Como funciona o pagamento?
+      - Quais são os ingredientes da pizza de frango com catupiry?
+      - Como posso fazer um pedido?
+      - Vocês têm algum desconto hoje?
+      - Qual é o valor da entrega?
