@@ -1,33 +1,178 @@
 version: "3.1"
 
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - pedir_pizza
+  - consultar_horario
+  - consultar_entrega
+  - consultar_cardapio
+  - consultar_pagamento
+  - consultar_promocao
+  - duvida_geral
+  - alterar_pedido
+  - cancelar_pedido
+  - coletar_endereco
+  - confirmar_pedido
+
+entities:
+  - sabor
+  - tamanho
+  - quantidade
+  - bairro
+  - pagamento
+
+slots:
+  sabor:
+    type: text
+    influence_conversation: true
+
+  tamanho:
+    type: text
+    influence_conversation: true
+
+  quantidade:
+    type: any
+    influence_conversation: true
+
+  bairro:
+    type: text
+    influence_conversation: true
+
+  pagamento:
+    type: text
+    influence_conversation: true
+
+  pedido_id:
+    type: text
+    influence_conversation: false
+
+  endereco:
+    type: unfeaturized
+    influence_conversation: false
 
 responses:
-  utter_greet:
-  - text: "Hey! How are you?"
+  utter_agradecimento:
+    - text: "Obrigado pelo pedido! Sua pizza já está sendo preparada! 🍕"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_erro:
+    - text: "Ops, não entendi muito bem. Pode repetir, por favor?"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_pedir_pizza:
+    - text: "Claro! Qual sabor, tamanho e quantidade você gostaria?"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_consultar_horario:
+    - text: "Funcionamos todos os dias das 18h às 23h! Inclusive feriados! ⏰"
 
-  utter_goodbye:
-  - text: "Bye"
+  utter_consultar_entrega:
+    - text: "Entregamos em vários bairros! Me diz o seu pra eu confirmar."
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_confirmar_entrega:
+    - text: "Sim, entregamos em {bairro}. A taxa é de R$5,00 e o tempo médio de entrega é de 40 minutos. 🚚"
+
+  utter_cardapio_completo:
+    - text: |
+        🍕 *Cardápio Completo da Pizzaria MoniBot* 🍕
+
+        *Pizzas Salgadas:*
+        - Calabresa
+          - Pequena (4 fatias) – R$30,00
+          - Média (6 fatias) – R$35,00
+          - Grande (8 fatias) – R$43,00
+          - Família (12 fatias) – R$50,00
+
+        - Marguerita
+          - Pequena – R$29,00 | Média – R$34,00 | Grande – R$42,00 | Família – R$49,00
+
+        - Frango com Catupiry
+          - Pequena – R$31,00 | Média – R$36,00 | Grande – R$44,00 | Família – R$51,00
+
+        - Portuguesa
+          - Pequena – R$32,00 | Média – R$37,00 | Grande – R$45,00 | Família – R$52,00
+
+        - Quatro Queijos
+          - Pequena – R$33,00 | Média – R$38,00 | Grande – R$46,00 | Família – R$53,00
+
+        - Vegetariana
+          - Pequena – R$30,00 | Média – R$35,00 | Grande – R$43,00 | Família – R$50,00
+
+        - Pepperoni
+          - Pequena – R$34,00 | Média – R$39,00 | Grande – R$47,00 | Família – R$54,00
+
+        - Napolitana
+          - Pequena – R$29,00 | Média – R$34,00 | Grande – R$42,00 | Família – R$49,00
+
+        *Pizzas Doces:*
+        - Chocolate com Morango
+          - Pequena – R$33,00 | Média – R$38,00 | Grande – R$46,00 | Família – R$53,00
+
+        - Banana com Canela
+          - Pequena – R$27,00 | Média – R$32,00 | Grande – R$40,00 | Família – R$47,00
+
+        - Prestígio
+          - Pequena – R$31,00 | Média – R$36,00 | Grande – R$44,00 | Família – R$51,00
+
+        - Romeu e Julieta
+          - Pequena – R$28,00 | Média – R$33,00 | Grande – R$41,00 | Família – R$48,00
+
+        - Nutella com Morango
+          - Pequena – R$37,00 | Média – R$42,00 | Grande – R$50,00 | Família – R$57,00
+
+        *Tamanhos disponíveis:*
+        - Pequena – 4 fatias (ideal para 1 pessoa)
+        - Média – 6 fatias (serve até 2 pessoas)
+        - Grande – 8 fatias (serve até 3 pessoas)
+        - Família – 12 fatias (serve até 5 pessoas)
+
+        🥤 *Bebidas:*
+        - Refrigerante lata – R$6,00
+        - Refrigerante 2L – R$10,00
+        - Água sem gás – R$3,00
+        - Água com gás – R$4,00
+        - Suco natural (laranja, uva, abacaxi) – R$7,00
+        - Cerveja artesanal – R$12,00
+
+        😋 É só me chamar pra fazer seu pedido!
+
+  utter_consultar_pagamento:
+    - text: "Aceitamos Pix, dinheiro, cartão de crédito e débito. Qual você prefere? 💳"
+
+  utter_promocao:
+    - text: |
+        🎉 Olha só as promoções imperdíveis que temos hoje! 😍
+        1️⃣ **Pizza Família**: Compre uma pizza grande e leve uma de tamanho médio por **50% OFF**.
+        2️⃣ **Combo Especial**: Pizza de calabresa + refrigerante por **R$ 39,90**.
+        3️⃣ **Desconto para entrega**: Ganhe **10% OFF** na sua entrega se pedir até as 18h!
+        Tem mais promoções rolando, me avise se quiser mais detalhes. 🤩
+
+  utter_duvida_geral:
+    - text: "Estamos localizados na Rua das Pizzas, nº 42. Temos salão e delivery! Qual sua dúvida?"
+
+  utter_alterar_pedido:
+    - text: "Sem problemas! O que você gostaria de alterar no seu pedido? 🍕"
+
+  utter_cancelar_pedido:
+    - text: "Seu pedido foi cancelado. 😢 Esperamos te ver de volta em breve com mais fome de pizza!"
+
+  utter_coletar_endereco:
+    - text: |
+        📦 Onde será entregue a sua pizza? Por favor, me envie o seu endereço.
+
+  utter_confirmar_pedido:
+    - text: |
+        🤔 Então, você pediu uma pizza de {sabor} no tamanho {tamanho} com bebida {pagamento}, certo?
+        📦 O seu endereço de entrega é {endereco}. Está tudo certo? 
+        Se sim, digite 'confirmar' para finalizar o pedido.
+
+actions:
+    - utter_pedir_pizza
+    - utter_consultar_horario
+    - utter_consultar_entrega
+    - utter_consultar_cardapio
+    - utter_consultar_pagamento
+    - utter_consultar_promocao
+    - utter_duvida_geral
+    - utter_alterar_pedido
+    - utter_cancelar_pedido
+    - utter_confirmar_pedido
 
 session_config:
   session_expiration_time: 60
