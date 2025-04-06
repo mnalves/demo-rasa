@@ -12,6 +12,9 @@ intents:
   - cancelar_pedido
   - coletar_endereco
   - confirmar_pedido
+  - informacoes_pizza  
+  - informacoes_alteracao 
+  - endereco_confirmado 
 
 entities:
   - sabor
@@ -20,34 +23,51 @@ entities:
   - bairro
   - pagamento
 
+
+
 slots:
+
   sabor:
     type: text
-    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: sabor
 
   tamanho:
     type: text
-    influence_conversation: true
-
+    mappings:
+      - type: from_entity
+        entity: tamanho
+    
   quantidade:
     type: any
-    influence_conversation: true
-
+    mappings:
+      - type: from_entity
+        entity: quantidade
+   
   bairro:
     type: text
-    influence_conversation: true
-
+    mappings:
+      - type: from_entity
+        entity: bairro
+    
   pagamento:
     type: text
-    influence_conversation: true
-
-  pedido_id:
+    mappings:
+      - type: from_entity
+        entity: pagamento
+    
+  pedido:
     type: text
-    influence_conversation: false
-
-  endereco:
-    type: unfeaturized
-    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: pedido
+    
+  endereço:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: endereço
 
 responses:
   utter_agradecimento:
@@ -173,6 +193,10 @@ actions:
     - utter_alterar_pedido
     - utter_cancelar_pedido
     - utter_confirmar_pedido
+    - utter_informacoes_pizza  
+    - utter_informacoes_alteracao  
+    - utter_endereco_confirmado  
+       
 
 session_config:
   session_expiration_time: 60
