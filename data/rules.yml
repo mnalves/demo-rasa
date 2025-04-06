@@ -1,13 +1,68 @@
 version: "3.1"
 
 rules:
+  - rule: User quer pedir uma pizza
+    steps:
+      - intent: pedir_pizza
+      - action: utter_pedir_pizza
 
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - rule: Usuário quer consultar o cardápio
+    steps:
+      - intent: consultar_cardapio
+      - action: utter_cardapio_completo
 
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - rule: Usuário quer consultar as pizzas doces
+    steps:
+      - intent: consultar_pizzas_doces
+      - action: utter_cardapio_completo
+
+  - rule: Usuário quer consultar bebidas
+    steps:
+      - intent: consultar_bebidas
+      - action: utter_cardapio_completo
+
+  - rule: Usuário quer saber o horário de funcionamento
+    steps:
+      - intent: consultar_horario
+      - action: utter_consultar_horario
+
+  - rule: Usuário quer saber sobre a entrega
+    steps:
+      - intent: consultar_entrega
+      - action: utter_consultar_entrega
+
+  - rule: Usuário quer saber as formas de pagamento
+    steps:
+      - intent: consultar_pagamento
+      - action: utter_consultar_pagamento
+
+  - rule: Usuário quer saber sobre promoções
+    steps:
+      - intent: consultar_promocao
+      - action: utter_promocao
+
+  - rule: Usuário tem uma dúvida geral
+    steps:
+      - intent: duvida_geral
+      - action: utter_duvida_geral
+
+  - rule: Usuário quer alterar um pedido
+    steps:
+      - intent: alterar_pedido
+      - action: utter_alterar_pedido
+
+  - rule: Usuário quer cancelar um pedido
+    steps:
+      - intent: cancelar_pedido
+      - action: utter_cancelar_pedido
+
+  - rule: Usuário fornece o endereço para entrega
+    steps:
+      - intent: coletar_endereco
+      - action: utter_coletar_endereco
+
+  - rule: Usuário confirma o pedido
+    steps:
+      - intent: confirmar_pedido
+      - action: utter_confirmar_pedido
+
