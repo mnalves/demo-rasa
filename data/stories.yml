@@ -1,67 +1,74 @@
 version: "3.1"
 
-rules:
-  - rule: User quer pedir uma pizza
+stories:
+  - story: Pedir pizza
     steps:
       - intent: pedir_pizza
       - action: utter_pedir_pizza
+      - intent: informacoes_pizza  # Este seria um novo intent que o usuário poderia criar para fornecer detalhes como sabor, tamanho, etc.
+      - action: utter_agradecimento
 
-  - rule: Usuário quer consultar o cardápio
+  - story: Consultar o cardápio
     steps:
       - intent: consultar_cardapio
       - action: utter_cardapio_completo
 
-  - rule: Usuário quer consultar as pizzas doces
+  - story: Consultar pizza doce
     steps:
       - intent: consultar_pizzas_doces
       - action: utter_cardapio_completo
 
-  - rule: Usuário quer consultar bebidas
+  - story: Consultar bebidas
     steps:
       - intent: consultar_bebidas
       - action: utter_cardapio_completo
 
-  - rule: Usuário quer saber o horário de funcionamento
+  - story: Consultar horário de funcionamento
     steps:
       - intent: consultar_horario
       - action: utter_consultar_horario
 
-  - rule: Usuário quer saber sobre a entrega
+  - story: Consultar entrega
     steps:
       - intent: consultar_entrega
       - action: utter_consultar_entrega
 
-  - rule: Usuário quer saber as formas de pagamento
+  - story: Consultar formas de pagamento
     steps:
       - intent: consultar_pagamento
       - action: utter_consultar_pagamento
 
-  - rule: Usuário quer saber sobre promoções
+  - story: Consultar promoções
     steps:
       - intent: consultar_promocao
       - action: utter_promocao
 
-  - rule: Usuário tem uma dúvida geral
+  - story: Dúvida geral
     steps:
       - intent: duvida_geral
       - action: utter_duvida_geral
 
-  - rule: Usuário quer alterar um pedido
+  - story: Alterar pedido
     steps:
       - intent: alterar_pedido
       - action: utter_alterar_pedido
+      - intent: informacoes_alteracao  # Esse seria um intent para especificar a alteração desejada.
+      - action: utter_agradecimento
 
-  - rule: Usuário quer cancelar um pedido
+  - story: Cancelar pedido
     steps:
       - intent: cancelar_pedido
       - action: utter_cancelar_pedido
 
-  - rule: Usuário fornece o endereço para entrega
+  - story: Coletar endereço
     steps:
       - intent: coletar_endereco
       - action: utter_coletar_endereco
+      - intent: endereco_confirmado  # Novo intent para confirmar o endereço.
+      - action: utter_agradecimento
 
-  - rule: Usuário confirma o pedido
+  - story: Confirmar pedido
     steps:
       - intent: confirmar_pedido
       - action: utter_confirmar_pedido
+
